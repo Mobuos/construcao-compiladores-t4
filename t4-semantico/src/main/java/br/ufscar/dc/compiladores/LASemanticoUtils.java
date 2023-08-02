@@ -73,7 +73,16 @@ public class LASemanticoUtils {
             ))
             {
                 return true;
-            }             
+            }
+        else if (
+            (tipo1 == TipoDeclaracao.LITERAL &&
+            tipo2 == TipoDeclaracao.CADEIA) ||
+            (tipo1 == TipoDeclaracao.CADEIA &&
+            tipo2 == TipoDeclaracao.LITERAL)
+        )
+        {
+            return true;
+        }         
 
         return false;
     }
@@ -573,7 +582,7 @@ public class LASemanticoUtils {
         }
 
         if (ctx.CADEIA() != null){
-            tipoIdenficador = TipoDeclaracao.LITERAL;
+            tipoIdenficador = TipoDeclaracao.CADEIA;
         }
 
         if (ctx.ENDERECO() != null){

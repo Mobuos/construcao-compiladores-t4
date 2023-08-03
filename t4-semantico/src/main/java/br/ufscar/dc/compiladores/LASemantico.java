@@ -207,7 +207,7 @@ public class LASemantico extends LABaseVisitor<Void> {
 
         else{
             for (int i = 0; i < ctx.expressao().size(); i++){
-                if (dadosParametros.recuperarTipoParametro(i) != LASemanticoUtils.verificarTipo(escopo, ctx.expressao(i))){
+                if (LASemanticoUtils.tiposCompativeis(dadosParametros.recuperarTipoParametro(i), LASemanticoUtils.verificarTipo(escopo, ctx.expressao(i)))){
                     LASemanticoUtils.adicionarErroSemantico(ctx.start, "incompatibilidade de parametros na chamada de " + nomeChamado);
                 }
             }

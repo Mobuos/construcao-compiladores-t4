@@ -7,7 +7,6 @@ public class TabelaDeSimbolos {
         INTEIRO,
         REAL,
         LITERAL,
-        CADEIA,
         LOGICO,
         REGISTRO,
         PONTEIRO,
@@ -110,6 +109,10 @@ public class TabelaDeSimbolos {
     )
     {
         if (!nome.contains(".")){
+            if (!tabela.containsKey(nome)){
+                System.out.println("ERRO: Chave \""+ nome +"\" não encontrada na tabela!");
+                return TipoDeclaracao.INVALIDO;
+            }
             return tabela.get(nome).tipo;
         }
         else{
